@@ -1,0 +1,14 @@
++---------------------------------------------+---------------+
+|                Business Name                | Checkin Count |
++---------------------------------------------+---------------+
+|                Bellagio Hotel               |      168      |
+|    Toronto Pearson International Airport    |      168      |
+|            24 Hour Fitness Sport            |      168      |
+|          Gold Coast Hotel & Casino          |      168      |
+|         Mandarin Oriental, Las Vegas        |      168      |
+|        Palace Station Hotel & Casino        |      168      |
+|                Wynn Las Vegas               |      168      |
+|        McCarran International Airport       |      168      |
+| The Peppermill Restaurant & Fireside Lounge |      168      |
+|      Flamingo Las Vegas Hotel & Casino      |      168      |
++---------------------------------------------+---------------+

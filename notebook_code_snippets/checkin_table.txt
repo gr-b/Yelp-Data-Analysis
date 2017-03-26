@@ -1,0 +1,14 @@
++------------------------+-------+
+|      Business ID       | Count |
++------------------------+-------+
+| FaHADZARwnY4yvlvpnsfGA |  168  |
+| t-o_Sraneime4DDhWrQRBA |  168  |
+| VxCnyVYn-FFgv6F1EqbdKA |  168  |
+| -kG0N8sBhBotMbu0KVSPaw |  168  |
+| na4Th5DrNauOv-c43QQFvA |  168  |
+| gRCEObNuHtI61xR32ytqNQ |  168  |
+| O3lQvyOADBs7f2W8A5D0Yg |  168  |
+| jKmAswXvFVRHN4VP-88zOA |  168  |
+| u_vPjx925UPEG9DFOAAvFQ |  168  |
+| XXW_OFaYQkkGOGniujZFHg |  168  |
++------------------------+-------+
