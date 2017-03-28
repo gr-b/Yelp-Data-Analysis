@@ -1,13 +1,31 @@
-import sys, json, math, nltk
+import sys, json, math, nltk, random
 undesirables = ['CC','IN','TO','DT']
 
+def log(n):
+    return math.log(n) - 1.3
+
+def calcscore(score):
+    if score < 24.17:
+        return 1
+    elif score < 24.75:
+        return 2
+    elif score < 25.2:
+        return 3
+    elif score < 25.45:
+        return 4
+    else:
+        return 5
+
 words = {}
-wordlist = open('output.txt','r')
+wordlist = open(sys.argv[1],'r')
 for line in wordlist:
     firstspace = line.strip().index('{')
-    word = line[0:firstspace]
+    word = line[0:firstspace][1:-2]
     info = line[firstspace-1:]
     infoDict = json.loads(info.strip())
+    score = infoDict['score']
+    count = infoDict['count']
+    infoDict['score'] = score*log(count)
     words[word] = infoDict
     #print word, '{0:.2f}'.format(infoDict['score'])
 
@@ -39,7 +57,11 @@ def remove_unecessary_pos(text):
             new_text += pos[0] + ' '
     return new_text
 
-for line in sys.stdin:
+
+scores = {}
+
+i = 0
+for line in open(sys.argv[2], 'r'):
     review = json.loads(line.strip())
     cleaned_text = clean_text(review['text'])
     cleaner_words = remove_unecessary_pos(cleaned_text).split()
@@ -49,7 +71,28 @@ for line in sys.stdin:
         if word in words.keys():
             total += words[word]['score']
             count += 1
+        if count == 0:
+            print 'Continuing ' + word
     if count == 0:
         continue
-    print 'Our score: {0:.2f} | Their score: {}'.format(total/count, review['stars']) 
+    score = total/count
+    print 'Our score: {0:.2f} | Their score: {1}'.format(int(calcscore(score)), review['stars'])
+    #scores += (score, int(review['stars']))
+    if review['stars'] not in scores.keys():
+        scores[review['stars']] = []
+    scores[review['stars']] += [score]
+    i += 1
+    if i > 50:
+        break
+
+for key, scorelist in scores.items():
+    total = 0
+    for score in scorelist:
+        total += score
+    print 'Average for {} : {}'.format(key, total/len(scorelist))
+
+
+
+
+
             
